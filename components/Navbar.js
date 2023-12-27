@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { React, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import Link from "next/link";
 
 const Navbar = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const Navbar = () => {
             id="navbarSupportedContent1"
             data-te-collapse-item
           >
+          <Link href={'/'} legacyBehavior>
             <a
               className="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
               href="#"
@@ -58,17 +60,29 @@ const Navbar = () => {
                 height={20}
               />
             </a>
+            </Link>
             <ul
               className="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
               data-te-navbar-nav-ref
             >
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+              <Link legacyBehavior href={'/tshirt'}>
                 <a
                   className="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
                   href="#"
                   data-te-nav-link-ref
                 >
-                  Home
+                  TShirts
+                </a>
+                </Link>
+              </li>
+              <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                <a
+                  className="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                  href="#"
+                  data-te-nav-link-ref
+                >
+                  Hoodies
                 </a>
               </li>
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
@@ -77,7 +91,7 @@ const Navbar = () => {
                   href="#"
                   data-te-nav-link-ref
                 >
-                  About
+                  Zipper
                 </a>
               </li>
               <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
@@ -86,7 +100,16 @@ const Navbar = () => {
                   href="#"
                   data-te-nav-link-ref
                 >
-                  Contact
+                  Mousedpads
+                </a>
+              </li>
+              <li className="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                <a
+                  className="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                  href="#"
+                  data-te-nav-link-ref
+                >
+                  Caps
                 </a>
               </li>
             </ul>
