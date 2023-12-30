@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import Link from "next/link";
 
-const Stickers = () => {
+const Caps = () => {
   return (
     <div>
         <section className="text-gray-600 body-font">
@@ -17,7 +17,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -41,7 +41,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -64,7 +64,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -87,7 +87,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -111,7 +111,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -134,7 +134,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -157,7 +157,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -180,7 +180,7 @@ const Stickers = () => {
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -202,4 +202,4 @@ const Stickers = () => {
   )
 }
 
-export default Stickers
+export default Caps
