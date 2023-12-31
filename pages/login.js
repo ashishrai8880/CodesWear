@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Login = () => {
@@ -45,12 +46,13 @@ const Login = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-semibold text-pink-600 hover:text-pink-500"
-                  >
-                    Forgot password?
-                  </a>
+                  
+                <Link legacyBehavior href={'/forgot-password'}>
+                    <a className="font-semibold text-pink-600 hover:text-pink-500">
+                        Forgot password?
+                    </a>
+                </Link>
+                  
                 </div>
               </div>
               <div className="mt-2">
@@ -76,13 +78,16 @@ const Login = () => {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?
-            <a
-              href="#"
-              className="font-semibold leading-6 text-pink-600 hover:text-pink-500"
-            >
-              Start a 14 day free trial
-            </a>
+            Does not have account ? 
+            <Link legacyBehavior href={'/signup'}>
+              <a
+                
+                className="font-semibold leading-6 text-pink-600 hover:text-pink-500"
+              >
+                Register Now 
+              </a>
+            </Link>
+            
           </p>
         </div>
       </div>
