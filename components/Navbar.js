@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { React, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
 import Link from "next/link";
 // import { Modal, Ripple, initTE } from "tw-elements";
 
-const Navbar = () => {
+const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart }) => {
   useEffect(() => {
     const init = async () => {
       const { Collapse, Dropdown, Modal, Ripple, initTE } = await import(
@@ -136,8 +137,14 @@ const Navbar = () => {
               className=""
               href="#"
             >
-              <FaShoppingCart className="text-2xl" />
+              <FaShoppingCart className="text-2xl mx-2" />
             </a>
+            <Link legacyBehavior href={'/login'}>
+              <a className="" >
+                <MdAccountCircle className="text-2xl  mx-2"/>
+              </a>
+            </Link>
+            
           </div>
         </div>
       </nav>
@@ -186,42 +193,76 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
-            <div className="relative flex flex-auto p-4" data-te-modal-body-ref>
-              <span className="text-info-600 [&>svg]:h-16 [&>svg]:w-20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-                </svg>
-              </span>
-              <div className="ml-8">
-                <p className="my-4">
-                  Do you need more time to make a purchase decision?
-                </p>
-                <p className="my-4">
-                  No pressure, your product will be waiting for you in the cart.
-                </p>
+
+            {/* Cart Items  */}
+
+            <section className="text-gray-600 body-font">
+              <div className="container px-5 py-2 mx-auto">
+                <div className="flex flex-wrap -m-4">
+                  {Object.keys(cart).map((key, index) => (
+                    <div key={index} className="p-4 ">
+                      <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                        <img
+                          alt="team"
+                          className="flex-shrink-0  w-24 h-24 object-cover object-center sm:mb-0 mb-4 rounded-full"
+                          src="/tshirt.webp"
+                        />
+                        <div className="flex-grow sm:pl-8">
+                          <h2 className="title-font font-medium text-lg text-gray-900">
+                            {cart[key].name}
+                          </h2>
+                          <h3 className="text-gray-500 mb-3">
+                            {cart[key].variant}
+                          </h3>
+                          <span>
+                            <button
+                              onClick={() => {
+                                addToCart(...Object.values(cart[key]));
+                              }}
+                              className="text-white bg-pink-500 px-2 mr-2"
+                            >
+                              +
+                            </button>{" "}
+                            {cart[key].qty}{" "}
+                            <button
+                              onClick={() => {
+                                removeFromCart(...Object.values(cart[key]));
+                              }}
+                              className="text-white bg-pink-500  px-2 ml-2"
+                            >
+                              -
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-8">Sub Total : {subTotal} Rs.</p>
               </div>
-            </div>
+            </section>
+
             <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
               <button
                 type="button"
-                className="mr-2 inline-block rounded bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                className="mr-2 inline-block rounded bg-pink-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-pink-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] "
                 data-te-ripple-init
                 data-te-ripple-color="light"
               >
-                Go to the cart
+                Checkout
               </button>
               <button
+                onClick={() => {
+                  clearCart();
+                }}
                 type="button"
-                className="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+                className="inline-block rounded bg-pink-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-pink-700 transition duration-150 ease-in-out hover:bg-pink-accent-100 focus:bg-pink-accent-100 focus:outline-none focus:ring-0 active:bg-pink-accent-200"
                 data-te-modal-dismiss
                 data-te-ripple-init
                 data-te-ripple-color="light"
               >
-                Close
+                Clear
               </button>
             </div>
           </div>

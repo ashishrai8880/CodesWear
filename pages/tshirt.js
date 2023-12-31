@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const TShirt = () => {
+
+  useEffect(() => {
+    document.title = 'TShirt Page'
+  }, [])
+  
+
   return (
     <div>
       <section className="text-gray-600 body-font">
