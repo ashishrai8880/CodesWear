@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
-const TShirt = () => {
+const TShirt = ({products}) => {
 
   useEffect(() => {
+    
     document.title = 'TShirt Page'
+
   }, [])
   
 
@@ -15,197 +17,51 @@ const TShirt = () => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             {/* <Link href={'/product/this-is-my-tshirt'}> */}
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
+
+            {products.map((product)=> (
+               
+               
+              <div key={product._id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <Link legacyBehavior href={`/product/${product._id}`}>
                 <a className="block relative  rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
+                    src={product.img}
                   />
                 </a>
               </Link>
               <div className="mt-4">
                 <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
+                  {product.category}
                 </h3>
                 <h2 className="text-gray-900 title-font text-lg font-medium">
-                  The Catalyzer
+                {product.title}
                 </h2>
-                <p className="mt-1">$16.00</p>
-                <p className="mt-1">S,M,L,XL,XXL,XXL</p>
+                <p className="mt-1"> {product.price}</p>
+                <p className="mt-1"> {product.size}</p>
               </div>
             </div>
 
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  Shooting Stars
-                </h2>
-                <p className="mt-1">$21.15</p>
-                <p className="mt-1">S,M,L,XL,XXL,XXL</p>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  Neptune
-                </h2>
-                <p className="mt-1">$12.00</p>
-                <p className="mt-1">S,M,XL,XXL,XXL</p>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  The 400 Blows
-                </h2>
-                <p className="mt-1">$18.40</p>
-                <p className="mt-1">S,M,XL,XXL,XXL</p>
-              </div>
-            </div>
+            )
+            ) }
 
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  The Catalyzer
-                </h2>
-                <p className="mt-1">$16.00</p>
-                <p className="mt-1">S,M,XL,XXL,XXL</p>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  Shooting Stars
-                </h2>
-                <p className="mt-1">$21.15</p>
-                <p className="mt-1">S,M,XL,XXL,XXL</p>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  Neptune
-                </h2>
-                <p className="mt-1">$12.00</p>
-                <p className="mt-1">S,M,XL,XXL,XXL</p>
-              </div>
-            </div>
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
-                <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
-                    width={421}
-                    height={260}
-                    alt="ecommerce"
-                    className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/tshirt.webp"
-                  />
-                </a>
-              </Link>
-              <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  CATEGORY
-                </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  The 400 Blows
-                </h2>
-                <p className="mt-1">$18.40</p>
-                <p className="mt-1">S,M,XL,XXL,XXL</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
     </div>
   );
 };
+
+
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+  const res = await fetch('http://localhost:3000/api/getProduct')
+  const products = await res.json()
+  
+  return { props: { products } }
+}
 
 export default TShirt;

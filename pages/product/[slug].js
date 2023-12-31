@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-const Slug = ({addToCart}) => {
+const Slug = ({addToCart , product }) => {
+  console.log('product details : ',product)
   const router = useRouter();
   const { slug } = router.query;
 
@@ -32,7 +33,7 @@ const Slug = ({addToCart}) => {
             <img
               alt="ecommerce"
               className="lg:w-1/2 w-full lg:h-auto h-64  rounded"
-              src="/tshirt.webp"
+              src={product.img}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
@@ -234,5 +235,15 @@ const Slug = ({addToCart}) => {
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+  console.log('in server side context : ',context.query)
+  const res = await fetch(`http://localhost:3000/api/getDetailProduct?_id=${context.query.slug}`);
+  const product = await res.json()
+  console.log('product detail  : ',product)
+
+  return { props:  product  }
+}
 
 export default Slug;
