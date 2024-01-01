@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res;
+    console.log(router.query.to)
     await axios
       .post("http://localhost:3000/api/auth/login", user)
       .then((res) => {
@@ -27,8 +27,10 @@ const Login = () => {
             progress: undefined,
             theme: "light",
           });
+          console.log('res : ',res)
+          localStorage.setItem('token' , res.data.token);
           setTimeout(() => {
-            router.push("/");
+            router.push(router.query.to);
           }, 2000);
         }
       })

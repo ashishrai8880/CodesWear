@@ -14,7 +14,7 @@ const handler =  async (req , res)=>{
             res.status(404).json({message : 'Credentials does not match !'})
         }
         
-        res.status(200).json({success : 'Logged In successfully'})
+        res.status(200).json({success : 'Logged In successfully' , user , token : '123234345'})
     }
     else{
         res.status(400).json({error : 'Method is not allowed'});

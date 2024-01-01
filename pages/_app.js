@@ -2,10 +2,17 @@ import '@/styles/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { useState , useEffect , useRef , React} from 'react'
+import { useRouter } from 'next/router';
+
+import LoadingBar from 'react-top-loading-bar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }) {
+  console.log('coming in app.js')
+  const router = useRouter();
+  const ref = useRef(null)
+  const [progress, setProgress] = useState(0)
 
   const cartRef = useRef();
   const [cart, setCart] = useState({})
@@ -13,12 +20,21 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
 
   useEffect(() => {
+
+    router.events.on('routeChangeComplete', ()=>{setProgress(100)})
+    router.events.on('routeChangeStarts', ()=>{setProgress(30)})
+
+    // console.log('router object : ',router)
+    if(!localStorage.getItem('token') && !(router.pathname == '/login' || router.pathname == '/register' || router.pathname == '/forgot-password' )){
+      const nextRoute = router.pathname.split('/')[1] ;
+      router.push(`/login?to=${nextRoute}`);
+    }
     
     if(localStorage.getItem('cart')){
       setCart(JSON.parse(localStorage.getItem('cart')));
     }
 
-  }, [])
+  }, [router.query])
   
 
   const saveCart = (myCart)=>{
@@ -77,7 +93,15 @@ export default function App({ Component, pageProps }) {
   }
 
 
-  return <> <Navbar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} cartRef={cartRef}/>
+  return <>
+      <LoadingBar
+        color='#FF647F'
+        waitingTime={500}
+        // loaderSpeed={5000}
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
+   <Navbar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} cartRef={cartRef}/>
           <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} cartRef={cartRef}/>  
 
           <Footer/></>
