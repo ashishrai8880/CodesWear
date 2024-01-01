@@ -164,7 +164,7 @@ const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart , cartRef
           className="pointer-events-none absolute right-7 h-auto w-full translate-x-[100%] opacity-0 transition-all duration-300 ease-in-out max-[576px]:right-auto min-[576px]:mx-auto min-[576px]:mt-2 min-[576px]:max-w-[500px]"
         >
           <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-            <div className="flex flex-shrink-0 items-center justify-between rounded-t-md bg-info-600 p-4 dark:border-b dark:border-neutral-500 dark:bg-transparent">
+            <div className="flex flex-shrink-0 items-center justify-between rounded-t-md bg-pink-600 p-4 dark:border-b dark:border-neutral-500 dark:bg-transparent">
               <h5
                 className="text-xl font-medium leading-normal text-white"
                 id="rightTopModalLabel"

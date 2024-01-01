@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Slug = ({addToCart , product , cartRef}) => {
   console.log('product details : ',product)
   const router = useRouter();
@@ -10,14 +13,49 @@ const Slug = ({addToCart , product , cartRef}) => {
   const [service, setservice] = useState();
 
   const onPinAvailability = async ()=>{
+    
     const pins =  await fetch('http://localhost:3000/api/pincode');
     const pinJson = await pins.json();
     console.log(pinJson)
     if(pinJson.includes(parseInt( pin))){
+      toast.success('This Pincode is serviciable', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       setservice(true);
     }else{
       setservice(false);
+      toast.error('Sorry ! We do not deliver to this pincode', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
+  }
+
+  const addProductToCart = (product)=>{
+    addToCart(product.slug , 1 , product.price , product.title , product.size , product.color , product.img) ;
+    toast.success('Product is successfully added to cart ', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   }
 
   const onPinChange =  (e)=>{
@@ -27,6 +65,7 @@ const Slug = ({addToCart , product , cartRef}) => {
 
   return (
     <div>
+      <ToastContainer />
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-12 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -182,7 +221,7 @@ const Slug = ({addToCart , product , cartRef}) => {
                 <button className="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Buy Now
                 </button>
-                <button onClick={()=>{addToCart(product.slug , 1 , product.price , product.title , product.size , product.color , product.img) }} className="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
+                <button onClick={()=>{addProductToCart(product) }} className="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Add to Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-pink-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
