@@ -5,7 +5,7 @@ import { MdAccountCircle } from "react-icons/md";
 import Link from "next/link";
 // import { Modal, Ripple, initTE } from "tw-elements";
 
-const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart }) => {
+const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart , cartRef}) => {
   useEffect(() => {
     const init = async () => {
       const { Collapse, Dropdown, Modal, Ripple, initTE } = await import(
@@ -129,7 +129,7 @@ const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart }) => {
 
           {/* Right Side */}
           <div className="relative flex items-center">
-            <a
+            <a ref={cartRef}
               data-te-toggle="modal"
               data-te-target="#rightTopModal"
               data-te-ripple-init
@@ -205,7 +205,7 @@ const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart }) => {
                         <img
                           alt="team"
                           className="flex-shrink-0  w-24 h-24 object-cover object-center sm:mb-0 mb-4 rounded-full"
-                          src="/tshirt.webp"
+                          src={cart[key].img}
                         />
                         <div className="flex-grow sm:pl-8">
                           <h2 className="title-font font-medium text-lg text-gray-900">

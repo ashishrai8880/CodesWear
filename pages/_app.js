@@ -1,12 +1,14 @@
 import '@/styles/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { useState , useEffect } from 'react'
+import { useState , useEffect , useRef , React} from 'react'
 
 
 export default function App({ Component, pageProps }) {
 
+  const cartRef = useRef();
   const [cart, setCart] = useState({})
+
   const [subTotal, setSubTotal] = useState(0);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function App({ Component, pageProps }) {
     setSubTotal(subt);
   }
 
-  const addToCart = (itemCode , qty , price , name , size , variant)=>{
+  const addToCart = (itemCode , qty , price , name , size , variant , img)=>{
     console.log('in add to cart ',itemCode , qty , price , name , size , variant)
 
     let newCart = cart ;
@@ -40,11 +42,14 @@ export default function App({ Component, pageProps }) {
       newCart[itemCode].qty = newCart[itemCode].qty + 1 ;
     }
     else{
-      newCart[itemCode] = {itemCode , qty:1 , price , name , size , variant} ;
+      newCart[itemCode] = {itemCode , qty:1 , price , name , size , variant , img} ;
     }
 
     setCart(newCart);
     saveCart(newCart);
+    console.log(' this is cart ref : ',cartRef)
+
+    cartRef.current.click();
 
   }
   const removeFromCart = (itemCode , qty , price , name , size , variant)=>{
@@ -71,8 +76,8 @@ export default function App({ Component, pageProps }) {
   }
 
 
-  return <> <Navbar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />
-          <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} />  
+  return <> <Navbar cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} cartRef={cartRef}/>
+          <Component cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} {...pageProps} cartRef={cartRef}/>  
 
           <Footer/></>
 }
