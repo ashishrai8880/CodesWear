@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import Link from "next/link";
 
-const Hoodie = () => {
+const Stickers = () => {
   return (
     <div>
         <section className="text-gray-600 body-font">
@@ -12,12 +12,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative  rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -36,12 +36,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -59,12 +59,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -82,12 +82,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -106,12 +106,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -129,12 +129,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -152,12 +152,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -175,12 +175,12 @@ const Hoodie = () => {
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <Link legacyBehavior href={"/product/this-is-my-tshirt"}>
                 <a className="block relative rounded overflow-hidden shadow-lg m-3">
-                  <Image
+                  <img
                     width={421}
                     height={260}
                     alt="ecommerce"
                     className="hover:scale-110 transition duration-500 w-full h-[50vh] block"
-                    src="/hoodie.webp"
+                    src="https://images.pexels.com/photos/2902599/pexels-photo-2902599.jpeg?auto=compress&cs=tinysrgb&w=600"
                   />
                 </a>
               </Link>
@@ -202,4 +202,4 @@ const Hoodie = () => {
   )
 }
 
-export default Hoodie
+export default Stickers
