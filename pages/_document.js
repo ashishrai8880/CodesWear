@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head >
       <link rel="shortcut icon" href="/logo.png" />
-      <title>CodesWear - </title>
+      {/* <title>CodesWear - </title> */}
       </Head>
       <body>
         <Main />

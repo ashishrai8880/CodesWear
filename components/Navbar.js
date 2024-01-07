@@ -5,7 +5,14 @@ import { MdAccountCircle } from "react-icons/md";
 import Link from "next/link";
 // import { Modal, Ripple, initTE } from "tw-elements";
 
-const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart , cartRef}) => {
+const Navbar = ({
+  addToCart,
+  cart,
+  removeFromCart,
+  subTotal,
+  clearCart,
+  cartRef,
+}) => {
   useEffect(() => {
     const init = async () => {
       const { Collapse, Dropdown, Modal, Ripple, initTE } = await import(
@@ -128,8 +135,10 @@ const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart , cartRef
           </div>
 
           {/* Right Side */}
+
           <div className="relative flex items-center">
-            <a ref={cartRef}
+            <a
+              ref={cartRef}
               data-te-toggle="modal"
               data-te-target="#rightTopModal"
               data-te-ripple-init
@@ -139,12 +148,61 @@ const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart , cartRef
             >
               <FaShoppingCart className="text-2xl mx-2" />
             </a>
-            <Link legacyBehavior href={'/login'}>
-              <a className="" >
-                <MdAccountCircle className="text-2xl  mx-2"/>
-              </a>
-            </Link>
-            
+            {/* <Link  href={'/login'}> */}
+
+            <div className="" data-te-dropdown-ref>
+              <button
+                className=""
+                type="button"
+                id="dropdownMenuButton1"
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <MdAccountCircle className="text-2xl  mx-2" />
+              </button>
+
+              <ul
+                className="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    className="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                    href="#"
+                    data-te-dropdown-item-ref
+                  >
+                    Account{" "}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                    href="#"
+                    data-te-dropdown-item-ref
+                  >
+                    Order
+                  </a>
+                </li>
+                <li>
+                  <Link legacyBehavior href={"/login"}>
+                    <a
+                      onClick={() => {
+                        localStorage.clear();
+                      }}
+                      className="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
+                      data-te-dropdown-item-ref
+                    >
+                      Logout
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* </Link> */}
           </div>
         </div>
       </nav>
@@ -244,13 +302,15 @@ const Navbar = ({ addToCart, cart, removeFromCart, subTotal, clearCart , cartRef
             </section>
 
             <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                              
               <button
                 type="button"
                 className="mr-2 inline-block rounded bg-pink-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-pink-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] "
                 data-te-ripple-init
                 data-te-ripple-color="light"
-              >
+              > <Link href={'/checkout'}>
                 Checkout
+              </Link>
               </button>
               <button
                 onClick={() => {
